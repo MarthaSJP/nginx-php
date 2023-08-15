@@ -1,0 +1,20 @@
+version: '3'
+services:
+  # nginx
+  web:
+      container_name: nginx_web
+      platform: 'linux/amd64'
+      build:
+        context: .
+        dockerfile: ./containers/nginx.dockerfile
+      ports:
+          - "8080:80"
+      depends_on:
+          - php
+  # PHP
+  php:
+      container_name: php-fpm
+      platform: 'linux/amd64'
+      build:
+        context: .
+        dockerfile: ./containers/php.dockerfile
