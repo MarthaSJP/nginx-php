@@ -18,3 +18,6 @@ services:
       build:
         context: .
         dockerfile: ./containers/php.dockerfile
+      environment:
+          # 環境変数でNew Relicのライセンスキーを設定
+          - NEW_RELIC_LICENSE_KEY
